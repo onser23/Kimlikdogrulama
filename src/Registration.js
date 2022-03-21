@@ -15,7 +15,6 @@ const Registration = ({navigation}) => {
 
   const registerUser = () => {
     setLoading(true);
-
     createUserWithEmailAndPassword(authentication, email, password)
       .then(re => {
         console.log(re);
@@ -27,7 +26,7 @@ const Registration = ({navigation}) => {
       });
   };
 
-  const renderButton = () => {
+  const registrationButton = () => {
     if (!loading) {
       return <Button onPress={registerUser}>Qeydiyyat</Button>;
     } else {
@@ -56,7 +55,7 @@ const Registration = ({navigation}) => {
         />
       </CardSection>
 
-      <CardSection>{renderButton()}</CardSection>
+      <CardSection>{registrationButton()}</CardSection>
     </Card>
   );
 };
