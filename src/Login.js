@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, TextInput, TouchableOpacity, Text} from 'react-native';
+import {StyleSheet, TextInput, Alert, Text} from 'react-native';
 import {authentication} from './firebase/firebase-config';
 import {signInWithEmailAndPassword, signOut} from 'firebase/auth';
 
@@ -24,6 +24,10 @@ const Login = ({navigation}) => {
       })
       .catch(err => {
         console.log(err);
+        setLoading(false);
+        Alert.alert('Mesaj', 'İstifadəçi adı və ya şifrə yanlışdır', [
+          {text: 'Anladım', onPress: () => null},
+        ]);
       });
   };
 
