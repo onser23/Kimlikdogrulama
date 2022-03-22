@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, TextInput} from 'react-native';
+import {StyleSheet, TextInput, Alert} from 'react-native';
 import {authentication} from './firebase/firebase-config';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 
@@ -15,15 +15,26 @@ const Registration = ({navigation}) => {
 
   const registerUser = () => {
     setLoading(true);
-    createUserWithEmailAndPassword(authentication, email, password)
-      .then(re => {
-        console.log(re);
-        setLoading(false);
-      })
-      .catch(re => {
-        console.log(re);
-        setLoading(false);
-      });
+    if (email === '' || password === '' || password.length < 5) {
+      setLoading(false);
+      Alert.alert('Mesaj', 'İstifadəçi adı və ya şifrə boş ola bilməz', [
+        {text: 'Anladım', onPress: () => null},
+      ]);
+    } else {
+      createUserWithEmailAndPassword(authentication, email, password)
+        .then(re => {
+          console.log(re);
+          setLoading(false);
+          navigation.navigate('Login');
+        })
+        .catch(re => {
+          console.log(re);
+          setLoading(false);
+          Alert.alert('Mesaj', 'E-poçt adresinizdə yanlışlıq var', [
+            {text: 'Anladım', onPress: () => null},
+          ]);
+        });
+    }
   };
 
   const registrationButton = () => {

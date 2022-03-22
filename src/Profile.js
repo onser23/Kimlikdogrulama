@@ -1,10 +1,22 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {View, Text} from 'react-native';
+import {authentication} from './firebase/firebase-config';
+import {onAuthStateChanged} from 'firebase/auth';
 
 const Profile = ({navigation}) => {
+  // movcud user
+  const [currentUser, setCurrentUser] = useState('');
+
+  onAuthStateChanged(authentication, user => {
+    if (user) {
+      const email = user.email;
+      setCurrentUser(email);
+    }
+  });
+
   return (
     <View>
-      <Text>My Profile</Text>
+      <Text>{currentUser}</Text>
     </View>
   );
 };

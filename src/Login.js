@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, Alert, Text} from 'react-native';
 import {authentication} from './firebase/firebase-config';
-import {signInWithEmailAndPassword, signOut} from 'firebase/auth';
+import {
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from 'firebase/auth';
 
 import Button from './ortaq/Button';
 import Card from './ortaq/Card';
