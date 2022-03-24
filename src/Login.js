@@ -24,7 +24,7 @@ const Login = ({navigation}) => {
       .then(re => {
         setIsSignedIn(true);
         setLoading(false);
-        navigation.navigate('Profile');
+        navigation.navigate('Books');
       })
       .catch(err => {
         console.log(err);

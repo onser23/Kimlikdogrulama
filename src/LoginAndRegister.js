@@ -5,13 +5,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Registration from './Registration';
 import Login from './Login';
 import Profile from './Profile';
+import Books from './Books';
 
 const Stack = createStackNavigator();
 
 function LoginAndRegister() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Books">
         <Stack.Screen name="Registration" component={Registration} />
         <Stack.Screen
           options={{headerShown: false}}
@@ -19,6 +20,7 @@ function LoginAndRegister() {
           component={Login}
         />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Books" component={Books} />
       </Stack.Navigator>
     </NavigationContainer>
   );
