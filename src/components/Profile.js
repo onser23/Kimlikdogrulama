@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
-import {authentication} from './firebase/firebase-config';
+import {authentication} from '../firebase/firebase-config';
 import {onAuthStateChanged} from 'firebase/auth';
 
 const Profile = ({navigation}) => {

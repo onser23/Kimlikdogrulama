@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 
-import {db} from './firebase/firebase-config';
+import {db} from '../firebase/firebase-config';
 import {collection, getDocs} from 'firebase/firestore/lite';
-
-import DetailEmployee from './DetailEmployee';
 
 const Employee = ({navigation}) => {
   const [employeeData, setEmployeeData] = useState([]);

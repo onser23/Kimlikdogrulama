@@ -1,10 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 
-const Header = ({title}) => {
+const Header = () => {
   return (
     <View style={styles.headerStyle}>
-      <Text style={styles.textStyle}>{title}</Text>
+      <Image
+        style={styles.imageStyle}
+        source={require('../images/sr-group.png')}
+      />
     </View>
   );
 };
@@ -12,15 +15,20 @@ const Header = ({title}) => {
 const styles = StyleSheet.create({
   headerStyle: {
     backgroundColor: '#f8f8f8',
-    height: 70,
+    height: 60,
     justifyContent: 'center',
     alignItems: 'center',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.25,
     elevation: 9,
+    flexDirection: 'row',
   },
   textStyle: {
     fontSize: 30,
+  },
+  imageStyle: {
+    width: 170,
+    height: 50,
   },
 });
 export default Header;

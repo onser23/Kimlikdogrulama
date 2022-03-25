@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {View, TextInput, StyleSheet, Alert} from 'react-native';
-import {db} from './firebase/firebase-config';
+import {db} from '../firebase/firebase-config';
 import {collection, getDocs, doc, setDoc} from 'firebase/firestore/lite';
 
-import Button from './ortaq/Button';
-import Card from './ortaq/Card';
-import CardSection from './ortaq/CardSection';
-import Spinner from './ortaq/Spinner';
+import Button from '../ortaq/Button';
+import Card from '../ortaq/Card';
+import CardSection from '../ortaq/CardSection';
+import Spinner from '../ortaq/Spinner';
 
 const AddEmployee = () => {
   const [ad, setAd] = useState('');

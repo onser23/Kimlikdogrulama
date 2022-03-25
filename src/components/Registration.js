@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, Alert} from 'react-native';
-import {authentication} from './firebase/firebase-config';
+import {authentication} from '../firebase/firebase-config';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 
-import Button from './ortaq/Button';
-import Card from './ortaq/Card';
-import CardSection from './ortaq/CardSection';
-import Spinner from './ortaq/Spinner';
+import Button from '../ortaq/Button';
+import Card from '../ortaq/Card';
+import CardSection from '../ortaq/CardSection';
+import Spinner from '../ortaq/Spinner';
 
 const Registration = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -25,6 +25,11 @@ const Registration = ({navigation}) => {
         .then(re => {
           console.log(re);
           setLoading(false);
+          Alert.alert(
+            'Mesaj',
+            'Qeydiyyat tamamlandı. Login səhifəsinə yönləndirilirsiniz',
+            [{text: 'Yaxşı', onPress: () => null}],
+          );
           navigation.navigate('Login');
         })
         .catch(re => {

@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, Alert, Text} from 'react-native';
-import {authentication} from './firebase/firebase-config';
+import {authentication} from '../firebase/firebase-config';
 import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
 
-import Button from './ortaq/Button';
-import Card from './ortaq/Card';
-import CardSection from './ortaq/CardSection';
-import Spinner from './ortaq/Spinner';
+import Button from '../ortaq/Button';
+import Card from '../ortaq/Card';
+import CardSection from '../ortaq/CardSection';
+import Spinner from '../ortaq/Spinner';
 
 const Login = ({navigation}) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -24,7 +24,7 @@ const Login = ({navigation}) => {
       .then(re => {
         setIsSignedIn(true);
         setLoading(false);
-        navigation.navigate('Books');
+        navigation.navigate('İşçilər');
       })
       .catch(err => {
         console.log(err);
@@ -88,7 +88,7 @@ const Login = ({navigation}) => {
       </CardSection>
       <CardSection>
         {isSignedIn === false ? (
-          <Button onPress={() => navigation.navigate('Registration')}>
+          <Button onPress={() => navigation.navigate('Qeydiyyat')}>
             <Text>Hebab yarat</Text>
           </Button>
         ) : null}
