@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, TextInput, StyleSheet, Alert} from 'react-native';
+import {View, TextInput, StyleSheet, Alert, Text} from 'react-native';
 import {db} from '../firebase/firebase-config';
 import {collection, getDocs, doc, setDoc} from 'firebase/firestore/lite';
 
@@ -7,12 +7,14 @@ import Button from '../ortaq/Button';
 import Card from '../ortaq/Card';
 import CardSection from '../ortaq/CardSection';
 import Spinner from '../ortaq/Spinner';
+import Datess from './Datess';
 
 const AddEmployee = () => {
   const [ad, setAd] = useState('');
   const [soyad, setSoyad] = useState('');
   const [vezife, setVezife] = useState('');
   const [id, setId] = useState('1');
+  const [datee, setDatee] = useState(new Date(Date.now()));
 
   const [loading, setLoading] = useState(false);
 
@@ -33,6 +35,7 @@ const AddEmployee = () => {
     await setDoc(doc(db, 'employee', id), {
       ad: ad,
       soyad: soyad,
+      tarix: datee,
       vezife: vezife,
     });
     Alert.alert('Mesaj', 'İşçi əlavə edildi', [
@@ -70,6 +73,10 @@ const AddEmployee = () => {
           value={soyad}
           onChangeText={soyad => setSoyad(soyad)}
         />
+      </CardSection>
+
+      <CardSection>
+        <Datess deyer={gelen => setDatee(gelen)} />
       </CardSection>
 
       <CardSection>

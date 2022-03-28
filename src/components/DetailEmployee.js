@@ -6,11 +6,7 @@ const DetailEmployee = ({route}) => {
   const soyad = route.params.employee.soyad;
   const vezife = route.params.employee.vezife;
 
-  return (
-    <View>
-      <Text>{ad}</Text>
-    </View>
-  );
+  return <View>{<Text>{ad}</Text>}</View>;
 };
 
 export default DetailEmployee;
